@@ -1,0 +1,70 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# plotGenStruct
+
+<!-- badges: start -->
+[![Travis build status](https://travis-ci.com/aj2duncan/plotGenStruct.svg?branch=master)](https://travis-ci.com/aj2duncan/plotGenStruct)
+<!-- badges: end -->
+
+The goal of plotGenStruct is to assist with plotting clustered genetic STRUCTURE datasets using the [ggplot2](https://ggplot2.tidyverse.org/) package. Data is automatically sorted into clusters and several palettes can be easily chosen.
+
+## Installation
+
+At present the package can only be installed from github with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("aj2duncan/plotGenStruct")
+```
+## Plotting Data
+
+Existing STRUCTURE data can be plotted using the function `struc_plot()`. If you don't have any data to hand then some random data can be generated using the `create_sruc_data()` function
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r creating}
+library(plotGenStruct)
+create_struc_data()
+```
+
+To see what the reordered data looks like we can use `struc_reorder()`.
+
+```{r reorder}
+struc_reorder(create_struc_data())
+```
+
+Finally we can plot the data. 
+
+```{r plot1}
+struc_plot(create_struc_data())
+```
+
+### Different Palettes
+
+You can also specify different palettes which is just a short cut to several of the `scale_fill_*()` functions from [ggplot2](https://ggplot2.tidyverse.org/).
+
+```{r plot2}
+struc_plot(create_struc_data(), fill_pal = "viridis")
+```
+
+This includes a custom palette. Here we also specify only two clusters.
+
+```{r plot3}
+# custom palette
+struc_plot(create_struc_data(num_clusters = 2), 
+           fill_pal = "custom", values = c("blue", "red"))
+```
+

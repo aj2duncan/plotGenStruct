@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Andrew Duncan
 Maintainer: Andrew Duncan <andrew@aj2duncan.com>
 Description: The package allows for the plotting of clustered genetic STRUCTURE
-    datasets using the ggplot package. Data is automatically sorted into 
+    datasets using the ggplot2 package. Data is automatically sorted into 
     clusters and the user has a choice of pallets. 
 License: MIT + file LICENSE
 Encoding: UTF-8
